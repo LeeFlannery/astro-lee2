@@ -30,19 +30,18 @@ const projects = (await getCollection('work'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="It's your boy Lee! Now in blog form."
-					tagline="Who wants to start?"
+					title="It's your boy Lee! Now in splash page form."
+					tagline="Digital transformation leader with a mustache."
 					align="start"
-				>
+				>	
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> Coder</Pill>
+						<Pill><Icon icon="microphone-stage" size="1.33em" /> Creator</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> Consultant</Pill>
 					</div>
 				</Hero>
-
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Lee Flannery looking great."
 					width="480"
 					height="620"
 					src="/assets/portrait.jpg"
@@ -50,57 +49,10 @@ const projects = (await getCollection('work'))
 			</header>
 
 			<Skills />
+			<section>
+				<div>I also have experience creating videos, art, training curriculum, audio work, and I've produced a podcast. I've been on social media since before AOL was shipping CDs. Encountered trolling since Usenet. I was building on the internet when you were still in short pants. I'm a great coder, I'm a leader, I'm a mentor, and I'm a content creator.</div>
+			</section>
 		</div>
-
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-			</section>
-		</main>
 
 		<ContactCTA />
 	</div>
