@@ -11,6 +11,10 @@ import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
@@ -29,17 +33,19 @@ const projects = (await getCollection('work'))
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero
-					title="Lee Flannery: Making enterprise software human."
-					tagline="Digital transformation leader with a mustache. Check my links above!"
-					align="start"
-				>	
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Coder</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Creater</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Consultant</Pill>
-					</div>
-				</Hero>
+				<div class="fade-in">
+					<Hero
+						title="Lee Flannery: Making enterprise software human."
+						tagline="Digital transformation leader with a mustache. Check my links above!"
+						align="start"
+					>	
+						<div class="roles">
+							<Pill><Icon icon="code" size="1.33em" /> Coder</Pill>
+							<Pill><Icon icon="microphone-stage" size="1.33em" /> Creater</Pill>
+							<Pill><Icon icon="pencil-line" size="1.33em" /> Consultant</Pill>
+						</div>
+					</Hero>
+				</div>
 				<img
 					alt="Lee Flannery looking great."
 					width="480"
@@ -57,6 +63,24 @@ const projects = (await getCollection('work'))
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<script>
+	// GSAP animations for fade-in elements
+	gsap.fromTo('.fade-in', 
+		{
+			opacity: 0,
+			y: 30,
+			duration: 0
+		},
+		{
+			opacity: 1,
+			y: 0,
+			duration: 0.8,
+			ease: "power2.out",
+			stagger: 0.2
+		}
+	);
+</script>
 
 <style>
 	.hero {
