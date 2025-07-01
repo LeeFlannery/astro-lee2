@@ -29,16 +29,10 @@ const { title, description } = Astro.props;
 			<Footer />
 		</div>
 
-		<script type="module">
-			import { runAnimations } from "/src/scripts/animations.js";
-	  
-			window.addEventListener("DOMContentLoaded", () => {
-			  runAnimations();
-			});
-		</script>
+		<script type="module" src="/scripts/animations.js"></script>
 
 		<script>
-			// Add “loaded” class once the document has completely loaded.
+			// Add "loaded" class once the document has completely loaded.
 			addEventListener('load', () => document.documentElement.classList.add('loaded'));
 		</script>
 
