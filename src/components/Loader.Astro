@@ -1,0 +1,50 @@
+---
+---
+
+<style>
+  #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0f0f0f;
+    color: #00ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+
+  #loader h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+</style>
+
+<div id="loader">
+  <h1>Lee Flannery</h1>
+</div>
+
+<script type="module">
+  import { gsap } from "gsap";
+
+  const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    tl.to("#loader h1", {
+      y: -20,
+      opacity: 0,
+      duration: 1,
+      delay: 1.2
+    }).to("#loader", {
+      y: "-100%",
+      duration: 1,
+      onComplete: () => {
+        document.getElementById("loader")?.remove();
+      }
+    }, "-=0.8");
+  });
+</script>

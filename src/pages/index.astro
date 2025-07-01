@@ -2,6 +2,9 @@
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+// Effect Imports
+import Loader from '../components/Loader.astro';
+
 // Component Imports
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
@@ -19,6 +22,7 @@ import Skills from '../components/Skills.astro';
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
+				{/* <Loader /> */}
 				<div class="fade-in">
 					<Hero
 						title="Lee Flannery: Making enterprise software human."
